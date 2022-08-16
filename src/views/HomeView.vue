@@ -1,9 +1,23 @@
 <script setup>
-import TheWelcome from '@/components/TheWelcome.vue'
+import PostManager from '@/content/PostManager'
+import tags from '@/content/tags'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <header>
+      <h1>Atualizações</h1>
+
+      <div>
+        <p>asdsada</p>
+        <p>asdsada</p>
+        <p>asdsada</p>
+        <p>asdsada</p>
+      </div>
+    </header>
+
+    <section>
+
+    </section>
   </main>
 </template>
