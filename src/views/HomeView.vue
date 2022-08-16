@@ -1,9 +1,15 @@
 <script setup>
 import PostManager from '@/content/PostManager'
-import tags from '@/content/tags'
 import Post from '@/components/Post.vue'
+import Bagde from '@/components/Bagde.vue'
+import { reactive } from 'vue'
 
-const posts = PostManager.getRegisteredPost()
+const state = reactive({ posts: PostManager.getRegisteredPost() })
+const allPosts = state.posts
+
+const selectTag = (tag) => {
+  state.posts = !tag ? allPosts : allPosts.filter((post) => post.tags.includes(tag))
+}
 </script>
 
 <template>
@@ -11,16 +17,11 @@ const posts = PostManager.getRegisteredPost()
     <header>
       <h1>Atualizações</h1>
 
-      <div>
-        <p>asdsada</p>
-        <p>asdsada</p>
-        <p>asdsada</p>
-        <p>asdsada</p>
-      </div>
+      <Bagde :selectTag="selectTag" />
     </header>
 
     <section>
-      <Post v-for="post in posts" :post="post" :key="post.link" />
+      <Post v-for="post in state.posts" :post="post" :key="post.link" />
     </section>
   </main>
 </template>
@@ -32,7 +33,10 @@ const posts = PostManager.getRegisteredPost()
 
     header {
       border-bottom: 1px solid var(--secondary-color);
+      padding-bottom: 5px;
       margin-bottom: 25px;
+      display: flex;
+      gap: 45px;
     }
 
     h1 {

@@ -32,10 +32,20 @@
   <section class="content">
     <RouterView />
   </section>
+
+  <footer>
+    <div class="logo">
+      <img alt="Logo" src="@/assets/logo-menu.png" />
+    </div>
+
+    <h3>Dúvidas ou sugestões?</h3>
+    <p>Para saber mais, dar sugustões ou doações, entre em contato conosco</p>
+    <button class="contact-button">CONTATAR</button>
+  </footer>
 </template>
 
 <style scoped>
-  header {
+  header, footer {
     background: var(--primary-color);
     color: white;
     border-radius: 20px;
@@ -48,13 +58,18 @@
     align-items: center;
   }
 
-  section.header .logo {
+  :is(section.header, footer) .logo {
+    display: block;
     width: 250px;
-    margin-right: 50px;
+    margin: 10px auto ;
   }
 
-  section.header .logo img {
+  :is(section.header, footer) .logo img {
     width: 100%;
+  }
+
+  section.header .menu {
+    flex: 0 1 80%;
   }
 
   section.header .menu a {
@@ -71,7 +86,23 @@
     font-size: 38px;
   }
 
-  section.content {
-    padding-inline: 125px;
+  section.content, footer {
+    margin-inline: 125px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 175px;
+  }
+
+  .contact-button {
+    background-color: var(--tertiary-color);
+    padding: 15px;
+    border-radius: 10px;
+    color:  var(--primary-color);
+    font-weight: bold;
+    margin-top: 25px;
+    font-size: 10px;
+    border: 0px;
   }
 </style>
