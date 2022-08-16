@@ -40,7 +40,10 @@
 
     <h3>Dúvidas ou sugestões?</h3>
     <p>Para saber mais, dar sugustões ou doações, entre em contato conosco</p>
-    <button class="contact-button">CONTATAR</button>
+
+    <a href="https://wa.me/5567993369450">
+      <button class="contact-button">CONTATAR</button>
+    </a>
   </footer>
 </template>
 
@@ -104,5 +107,6 @@
     margin-top: 25px;
     font-size: 10px;
     border: 0px;
+    cursor: pointer;
   }
 </style>
