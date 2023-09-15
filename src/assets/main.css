@@ -11,26 +11,73 @@
 :root {
   --primary-color: #232e52;
   --secondary-color: #ebf2fe;
-  --tertiary-color: #8ceead;
+  --tertiary-color: #4cb46f;
+  --main-font: 'Graphik';
 }
 
 body {
-  transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: 'Graphik';
+  font-family: var(--main-font);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 #app {
-  max-width: 1480px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
 }
 
 a {
   text-decoration: none;
   color: unset;
   transition: 0.4s;
+}
+
+a.link {
+  text-decoration: underline;
+  color: var(--tertiary-color);
+}
+
+/* classes to posts */
+
+.post-container .title {
+  font-size: 2em;
+  margin-bottom: 0rem;
+}
+
+.post-container .subtitle {
+  font-size: 1.3em;
+  font-weight: 300;
+  margin-block: 1rem;
+}
+
+.post-container .subtitle.spaced-bottom {
+  margin-bottom: 2rem;
+}
+
+.post-container p {
+  margin-block: 1rem;
+}
+
+.post-container .centered-container {
+  margin-block: 2rem;
+}
+
+.post-container .centered-container iframe,
+.post-container .centered-container video,
+.post-container .centered-container img {
+  display: block;
+  margin-inline: auto;
+  width: 100%;
+  max-width: 600px;
+}
+
+.post-container .centered-container p.description {
+  display: block;
+  margin-inline: auto;
+  text-align: center;
+  font-size: 0.9em;
+  width: 100%;
+  max-width: 600px;
 }

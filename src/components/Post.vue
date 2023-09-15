@@ -26,7 +26,6 @@ const {post} = defineProps(['post'])
 
 <style scoped>
     article.post {
-        color: var(--primary-color);
         display: flex;
         align-items: center;
         border-bottom: 1px solid var(--secondary-color);
@@ -53,7 +52,8 @@ const {post} = defineProps(['post'])
     }
 
     h1 {
-      font-size: 2em;
+        font-size: 2em;
+        line-height: 32px;
     }
 
     span.tag {

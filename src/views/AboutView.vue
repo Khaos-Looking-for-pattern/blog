@@ -28,15 +28,11 @@
 </template>
 
 <style scoped>
-  .space-top-1 { 
-    margin-top: 1em;
-  }
-  
-  section, .space-top-2 { 
-    margin-top: 2em;
-  }
-
   p {
     text-align: justify;
+  }
+
+  h2, section {
+    margin-block: 2rem;
   }
 </style>

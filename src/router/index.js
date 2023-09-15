@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import PostManager from '@/content/PostManager'
+import NotFoundView from '../views/NotFoundView.vue'
 
 let routes = []
 PostManager.getRegisteredPost().forEach(route => {
@@ -25,7 +26,12 @@ const router = createRouter({
       name: 'about',
       component: AboutView
     },
-    ...routes
+    ...routes,
+    {
+      path: "/:catchAll(.*)",
+      name: 'NotFound',
+      component: NotFoundView
+    },
   ]
 })
 
