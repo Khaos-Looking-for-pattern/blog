@@ -1,12 +1,14 @@
-const DESENVOLVIMENTO = "desenvolvimento"
-const ESPAÇO = "espaço"
-const PROJETO = "projeto"
+const DESENVOLVIMENTO = "Desenvolvimento"
+const CURIOSIDADE = "Curiosidade"
+const ARTIGO = "Artigo"
+const ASTRONOMIA = "Astronomia"
+const PROJETO = "Meu Projeto"
 
 const tags = [
-    DESENVOLVIMENTO, ESPAÇO, PROJETO
+    DESENVOLVIMENTO, CURIOSIDADE, ARTIGO, ASTRONOMIA, PROJETO
 ]
 
 export default tags
 export {
-    DESENVOLVIMENTO, ESPAÇO, PROJETO
+    DESENVOLVIMENTO, CURIOSIDADE, ARTIGO, ASTRONOMIA, PROJETO
 }

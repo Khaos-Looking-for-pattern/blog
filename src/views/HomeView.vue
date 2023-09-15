@@ -23,7 +23,7 @@ const selectTag = (tag) => {
     <section>
       <Post v-for="post in state.posts" :post="post" :key="post.link" />
       <div v-if="state.posts.length === 0">
-        <p>Não posts disponíveis</p>
+        <p>Não há posts disponíveis</p>
       </div>
     </section>
   </main>
