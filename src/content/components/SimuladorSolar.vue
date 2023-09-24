@@ -10,8 +10,8 @@ onMounted(() => {
   let width, height
 
   if (window.innerWidth < 900) {
-    width = window.innerWidth / 2;
-    height = window.innerWidth / 2;
+    width = window.innerWidth / 2.65
+    height = window.innerWidth / 2.65
   } else {
     width = 600;
     height = 600;
@@ -156,7 +156,7 @@ onMounted(() => {
     </table>
 
     <div class="centered-container">
-      <img id="diagramH-R" src="/public/330px-H-R_diagram.svg.png" alt="diagrama H-R">
+      <img id="diagramH-R" src="/330px-H-R_diagram.svg.png" alt="diagrama H-R">
       <p class="description">
         Diagrama de Hertzsprung-Russell: As estrelas mais quentes estão no lado esquerdo do gráfico, enquanto as estrelas mais frias estão no lado direito.
         As estrelas mais brilhantes estão na parte superior do gráfico, enquanto as menos luminosas estão na parte inferior.
