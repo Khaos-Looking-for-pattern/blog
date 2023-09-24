@@ -39,6 +39,10 @@ a.link {
   color: var(--tertiary-color);
 }
 
+.text-center {
+  text-align: center;
+}
+
 /* classes to posts */
 
 .post-container .title {

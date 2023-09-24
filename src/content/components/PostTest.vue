@@ -1,5 +1,5 @@
 <template>
   <main>
-    <p>Chatuba</p>
+    <p>Teste</p>
   </main>
 </template>
