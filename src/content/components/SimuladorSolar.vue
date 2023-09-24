@@ -91,7 +91,7 @@ onMounted(() => {
         <label for="points">Temperatura superficial:</label>
         <input type="range" min="2000" max="32000" :value="temperature" @input="event => temperature = parseInt(event.target.value)" >
 
-        <p>Temperatura superficial: {{ temperature.toLocaleString() }} (K)</p>
+        <p>Temperatura: {{ temperature.toLocaleString() }} (K)</p>
       </div>
 
 
