@@ -2,7 +2,7 @@
 
 import { ref, onMounted  } from 'vue'
 import * as THREE from 'three';
-
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
 const temperature = ref(16000)
 
@@ -24,50 +24,56 @@ onMounted(() => {
   renderer.setSize( width, height );
   document.getElementById('simulator').appendChild(renderer.domElement);
 
-  const geometry = new THREE.SphereGeometry(4);
-  const material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
-  const model = new THREE.Mesh( geometry, material );
-  scene.add( model );
+  let sun
 
-  camera.position.z = 10;
+  var loader = new GLTFLoader();
+  loader.load('sun.glb', function (gltf) {
+    sun = gltf.scene.children[0];
+    sun.scale.set(15, 15, 15);
+    sun.position.y = 0;
+    sun.position.x = 0;
+    sun.position.z = 0;
+
+    scene.add(sun);
+  });
+
+  camera.position.z = 15;
 
   let currentTemperature = temperature.value
 
   function animate() {
     requestAnimationFrame(animate);
 
-    if (currentTemperature != temperature.value) {
-      let red, green, blue
-      
+    if (currentTemperature != temperature.value && sun) {
       if (temperature.value > 3e4) {
-        red = 0
-        green = 0
-        blue = 1
+        sun.material.emissive.r = 0
+        sun.material.emissive.g = 0.125
+        sun.material.emissive.b = 1000
       } else if (temperature.value > 1e4) {
-        red = 1
-        green = 1
-        blue = 1
+        sun.material.emissive.r = 100000
+        sun.material.emissive.g = 100000
+        sun.material.emissive.b = 100000
       } else if (temperature.value > 5e3) {
-        red = 1
-        green = 1
-        blue = 0
+        sun.material.emissive.r = 1
+        sun.material.emissive.g = 1
+        sun.material.emissive.b = 1
       } else if (temperature.value > 2.5e3) {
-        red = 1
-        green = 0.5
-        blue = 0
+        sun.material.emissive.r = 1
+        sun.material.emissive.g = 0.5
+        sun.material.emissive.b = 0
       } else {
-        red = 1
-        green = 0
-        blue = 0
+        sun.material.emissive.r = 100000
+        sun.material.emissive.g = 0.15
+        sun.material.emissive.b = 0
       }
 
-      model.material.color.setRGB(red, green, blue);
       currentTemperature = temperature.value
     }
 
-
-    model.rotation.x += 0.01;
-    model.rotation.y += 0.01;
+    if (sun) {
+      sun.rotation.x += 0.0005;
+      sun.rotation.y += 0.0005;
+    }
 
     renderer.render(scene, camera);
   }
@@ -93,13 +99,6 @@ onMounted(() => {
 
         <p>Temperatura: {{ temperature.toLocaleString() }} (K)</p>
       </div>
-
-
-      <p v-if="temperature > 40 && brightness < 20">
-        A Luminosidade está relacionada com o seu tamanho e a sua temperatura. 
-        Por essa razão, a busca por estrelas de alta temperatura e baixa luminosidade não é
-        algo que se encontre facilmente, embora existam algumas exceções. Embora raro, é possível encontrá-las.
-      </p>
 
       <div id="simulator"></div>
     </section>
@@ -186,8 +185,10 @@ onMounted(() => {
       <li>
         <a href="https://www.ufrgs.br/astronomia/wp-content/uploads/2016/07/Nascimento-e-evolu%C3%A7%C3%A3o-das-Estrelas.pdf" target="_blank" class="link">https://www.ufrgs.br/astronomia/wp-content/uploads/2016/07/Nascimento-e-evolu%C3%A7%C3%A3o-das-Estrelas.pdf</a>
       </li>
+      <li>
+        <a href="https://solarsystem.nasa.gov/resources/2352/sun-3d-model" target="_blank" class="link">https://solarsystem.nasa.gov/resources/2352/sun-3d-model</a>
+      </li>
     </ul>
-
   </main>
 </template>
 
