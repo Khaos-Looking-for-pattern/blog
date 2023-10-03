@@ -4,7 +4,7 @@ import { ref, onMounted  } from 'vue'
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
-const temperature = ref(16000)
+const temperature = ref(7000)
 
 onMounted(() => {
   let width, height
@@ -50,9 +50,9 @@ onMounted(() => {
         sun.material.emissive.g = 0.125
         sun.material.emissive.b = 1000
       } else if (temperature.value > 1e4) {
-        sun.material.emissive.r = 100000
-        sun.material.emissive.g = 100000
-        sun.material.emissive.b = 100000
+        sun.material.emissive.r = 400
+        sun.material.emissive.g = 400
+        sun.material.emissive.b = 400
       } else if (temperature.value > 5e3) {
         sun.material.emissive.r = 1
         sun.material.emissive.g = 1
